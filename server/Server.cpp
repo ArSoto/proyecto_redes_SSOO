@@ -81,7 +81,7 @@ void Server::waitConnections() {
             exit(EXIT_FAILURE);
         }
 
-        // atiende cliente.
+        // atiende client.
         this->readLine(conn_s, cli_addr, clilen);
     }
     /**En este punto la conexión se estableció**/
