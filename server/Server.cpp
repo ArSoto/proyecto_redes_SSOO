@@ -107,14 +107,19 @@ void Server::readLine(int conn_s, struct sockaddr_in cli_addr, socklen_t clilen)
         string line(buffer);
 
         // elimina los últimos 2 caracteres.
-        line.pop_back(); line.pop_back();
+       // line.pop_back(); line.pop_back();
 
         if (line.compare("exit") == 0) {
             cout << "Close connection [" << inet_ntoa(sinaddr) << ":" << sockin->sin_port << "]" << endl;
             close(conn_s);
+
+
             break;
         } else {
+            char *ja = "jaja";
             cout << "Command Connection [" << inet_ntoa(sinaddr) << ":" << sockin->sin_port << "]: " << line << endl;
+            send(conn_s , ja , 1024 , 0 );
+
         }
 
         // limpia el buffer.
